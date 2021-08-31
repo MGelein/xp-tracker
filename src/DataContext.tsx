@@ -11,7 +11,7 @@ type ContextType = {
     setGroups: React.Dispatch<React.SetStateAction<Group[]>>,
 }
 
-const DataContext = createContext<ContextType | null>(null);
+export const DataContext = createContext<ContextType | null>(null);
 
 function AppContext({ children }: {
     children: React.ReactNode

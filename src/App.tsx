@@ -1,10 +1,10 @@
+import { useData } from './util/hooks';
+
 import './App.scss';
-import AppContext from './DataContext';
 
 function App() {
-    return <AppContext>
-        <div>Testing</div>
-    </AppContext>
+    const { group } = useData();
+    return <>{group && group.name}{!group && 'Overview'}</>
 }
 
 export default App;
