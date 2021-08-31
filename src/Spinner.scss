@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: growIn 0.5s ease-in-out forwards;
 
     .breather {
         display: flex;
@@ -11,13 +12,13 @@
         align-items: center;
         width: 20rem;
         height: 20rem;
-        background-color: var(--color-accent);
+        background-color: var(--color-dark);
         border-radius: 50%;
         animation: breathe 1s ease-in-out infinite alternate-reverse;
     }
 
     .text {
-        color: var(--color-light);
+        color: var(--color-accent);
         font-weight: bold;
         display: block;
         font-size: 3rem;
@@ -41,6 +42,16 @@
 
         to {
             transform: scale(0.9) rotate(5deg);
+        }
+    }
+
+    @keyframes growIn {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
         }
     }
 }

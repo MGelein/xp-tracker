@@ -1,12 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap");
 
 :root {
   font-size: 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
 
   --color-light: white;
   --color-dark: #333;
   --color-accent: #65e04d;
+}
+
+body {
+  font-size: 170%;
+  line-height: 1.5;
 }
 
 * {

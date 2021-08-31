@@ -1,0 +1,44 @@
+.link-button {
+    --animation-delay: 0ms;
+
+    min-width: 23rem;
+    font-size: 1.8rem;
+    font-weight: lighter;
+    text-decoration: none;
+    text-align: center;
+    padding: 1.6rem 0.8rem;
+    margin: 0.8rem;
+    background: var(--color-dark);
+    border: 2px solid var(--color-dark);
+    color: var(--color-light);
+    border-radius: 0.8rem;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+
+    &.entering {
+        transform: translateX(-100vw);
+        animation: slideIn 0.2s ease-in-out forwards var(--animation-delay);
+    }
+
+    &:nth-child(even) {
+        background: var(--color-light);
+        color: var(--color-dark);
+    }
+
+    &:hover {
+        animation: none;
+        transform: translateY(0.2rem);
+        box-shadow: none;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100vw);
+        }
+
+        to {
+            transform: none;
+        }
+    }
+}
