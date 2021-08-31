@@ -21,6 +21,14 @@
         align-items: center;
     }
 
+    .left {
+        flex-grow: 1;
+    }
+
+    .right {
+        animation: slideLeftX 1s ease-in-out forwards;
+    }
+
     @keyframes slideInY {
         from {
             transform: translateY(-10rem);
@@ -34,6 +42,16 @@
     @keyframes slideRightX {
         from {
             transform: translateX(-100vw);
+        }
+
+        to {
+            transform: none;
+        }
+    }
+
+    @keyframes slideLeftX {
+        from {
+            transform: translateX(100vw);
         }
 
         to {

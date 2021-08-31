@@ -1,0 +1,148 @@
+.student {
+    --anim-delay: 0ms;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: calc(clamp(27rem, calc(100% - 2.4rem), 80rem));
+    padding: 0.8rem;
+    margin: 0.8rem 0;
+    transform: translateY(200vh);
+    animation: studentSlideIn 1s ease-in-out forwards var(--anim-delay);
+
+    &__emoji {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background-color: var(--color-accent);
+        margin-left: 0.8rem;
+        font-size: 2.4rem;
+        animation: rotateIn 1s linear calc(var(--anim-delay) + 1.5s);
+    }
+
+    &__info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__xp-bar {
+        margin-left: 0.8rem;
+        height: 1.6rem;
+        position: relative;
+        z-index: 1;
+        --percentage: 50;
+
+        &__outline {
+            margin-left: 0.8rem;
+            height: 1.6rem;
+            border: 2px solid var(--color-dark);
+            position: relative;
+            margin-top: -1.6rem;
+            border-radius: 0.4rem;
+            z-index: 10;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 1.6rem;
+            width: calc(1% * var(--percentage));
+            max-width: 100%;
+            min-width: 1%;
+            background-color: var(--color-accent);
+            z-index: -1;
+            border-radius: 0.4rem;
+            transform: scaleX(0);
+            animation: scaleInX 0.5s ease-in-out forwards 1s;
+            transform-origin: left;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 0.6rem;
+            width: calc(1% * var(--percentage));
+            max-width: 100%;
+            min-width: 1%;
+            background-color: rgba(255, 255, 255, 0.6);
+            z-index: 0;
+            border-radius: 0.4rem;
+            transform: scaleX(0);
+            animation: scaleInX 0.5s ease-in-out forwards 1s;
+            transform-origin: left;
+        }
+    }
+
+    &__name-xp {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__xp-target {
+        font-size: 1rem;
+
+        @media (max-width: 400px) {
+            display: none;
+        }
+    }
+
+    &__xp {
+        font-size: 2rem;
+    }
+
+    &__name {
+        font-size: 2rem;
+        margin-left: 0.8rem;
+    }
+
+    &__index {
+        font-size: 3.2rem;
+        font-weight: bold;
+        min-width: 2ch;
+        display: flex;
+        justify-content: center;
+    }
+
+    @keyframes scaleInX {
+        from {
+            transform: scaleX(0);
+        }
+
+        to {
+            transform: scaleX(1);
+        }
+    }
+
+    @keyframes studentSlideIn {
+        from {
+            transform: translateY(100vh);
+        }
+
+        to {
+            transform: none;
+        }
+    }
+
+    @keyframes rotateIn {
+        0% {
+            transform: rotate(-360deg);
+        }
+
+        50% {
+            transform: rotate(-180deg) scale(1.3);
+        }
+
+        100% {
+            transform: none;
+        }
+    }
+}

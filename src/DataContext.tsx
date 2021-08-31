@@ -33,13 +33,10 @@ function AppContext({ children }: {
 
     useEffect(() => {
         const selectedGroup = groups.find(group => {
-            console.log(slug, group.name)
             return slug.includes(group.name);
         });
-        if (selectedGroup) setGroup(selectedGroup);
+        setGroup(selectedGroup ?? null);
     }, [groups, slug]);
-
-    useEffect(() => console.log(slug), [slug]);
 
     return (<DataContext.Provider value={{
         group, setGroup,

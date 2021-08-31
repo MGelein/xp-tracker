@@ -1,0 +1,45 @@
+.group {
+    min-height: 100vh;
+
+    &__students {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 4rem;
+    }
+
+    &__back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: opacity 0.2s ease-in-out;
+
+        & > * {
+            color: var(--color-accent);
+        }
+
+        .text {
+            display: flex;
+        }
+
+        .symbol {
+            font-weight: bold;
+            font-size: 2rem;
+            margin-right: 0.8rem;
+        }
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 400px) {
+            .text {
+                display: none;
+            }
+            .symbol {
+                display: flex;
+            }
+        }
+    }
+}
