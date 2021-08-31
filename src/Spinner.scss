@@ -1,0 +1,46 @@
+.spinner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .breather {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20rem;
+        height: 20rem;
+        background-color: var(--color-accent);
+        border-radius: 50%;
+        animation: breathe 1s ease-in-out infinite alternate-reverse;
+    }
+
+    .text {
+        color: var(--color-light);
+        font-weight: bold;
+        display: block;
+        font-size: 3rem;
+        animation: counterBreathe 0.9s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes breathe {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes counterBreathe {
+        from {
+            transform: scale(1) rotate(-5deg);
+        }
+
+        to {
+            transform: scale(0.9) rotate(5deg);
+        }
+    }
+}

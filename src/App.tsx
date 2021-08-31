@@ -1,10 +1,14 @@
 import { useData } from './util/hooks';
 
 import './App.scss';
+import Overview from './Overview';
+import GroupView from './GroupView';
 
 function App() {
     const { group } = useData();
-    return <>{group && group.name}{!group && 'Overview'}</>
+    return (<div className="app">
+        {group === null ? <Overview /> : <GroupView />}
+    </div>);
 }
 
 export default App;
