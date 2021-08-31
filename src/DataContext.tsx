@@ -3,6 +3,8 @@ import { createContext, useState } from "react";
 import { Group, loadGroups } from './util/spreadsheet';
 
 type ContextType = {
+    loaded: boolean,
+    setLoaded: React.Dispatch<React.SetStateAction<boolean>>,
 
     group: Group | null,
     setGroup: React.Dispatch<React.SetStateAction<Group | null>>,
@@ -22,11 +24,15 @@ function AppContext({ children }: {
     const [group, setGroup] = useState<Group | null>(null);
     const [groups, setGroups] = useState<Group[]>([]);
     const [slug, setSlug] = useState(decodeURI(window.location.pathname));
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         const init = async () => {
             const newGroups = await loadGroups();
-            setGroups(newGroups);
+            setTimeout(() => {
+                setGroups(newGroups);
+            }, 300);
+            setLoaded(true);
         }
         init();
     }, []);
@@ -42,6 +48,7 @@ function AppContext({ children }: {
         group, setGroup,
         groups, setGroups,
         slug, setSlug,
+        loaded, setLoaded,
     }}>
         {children}
     </DataContext.Provider>);

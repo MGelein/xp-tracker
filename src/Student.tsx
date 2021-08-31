@@ -30,7 +30,7 @@ function Student({
     }, []);
 
     return (<div className="student" style={animStyle}>
-        <span className="student__index">{index + 1}</span>
+        <span className="student__index">{index + 1}.</span>
         <span className="student__emoji">{emoji}</span>
         <div className="student__info">
             <div className="student__name-xp">

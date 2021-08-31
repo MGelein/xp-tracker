@@ -1,7 +1,11 @@
+import { useData } from './util/hooks';
+
 import './Spinner.scss';
 
 function Spinner() {
-    return (<div className="spinner">
+    const { loaded } = useData();
+
+    return (<div className={`spinner ${loaded ? 'loaded' : ''}`}>
         <div className="breather">
             <span className="text">loading...</span>
         </div>

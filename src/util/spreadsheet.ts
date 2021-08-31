@@ -30,6 +30,7 @@ export async function loadGroups() {
             if (name === null || xp === null) break;
             group.students.push({ name, xp, emoji })
         }
+        group.students.sort((a, b) => b.xp - a.xp);
         groups.push(group);
     }
     return groups;

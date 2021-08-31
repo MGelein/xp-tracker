@@ -6,6 +6,10 @@
     align-items: center;
     animation: growIn 0.5s ease-in-out forwards;
 
+    &.loaded {
+        animation: growOut 0.3s ease-in-out forwards;
+    }
+
     .breather {
         display: flex;
         justify-content: center;
@@ -52,6 +56,16 @@
 
         to {
             transform: scale(1);
+        }
+    }
+
+    @keyframes growOut {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0);
         }
     }
 }
