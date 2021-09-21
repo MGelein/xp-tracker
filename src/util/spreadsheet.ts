@@ -25,8 +25,9 @@ export async function loadGroups() {
 
         for (let index = 0; index < 100; index++) {
             const name = sheet.getCell(index + 1, 0).value as string;
-            const xp = sheet.getCell(index + 1, 1).value as number;
+            const xp = sheet.getCell(index + 1, 1).value as number ?? 0;
             const emoji = sheet.getCell(index + 1, 2).value as string;
+            console.log(name, xp, emoji);
             if (name === null || xp === null) break;
             group.students.push({ name, xp, emoji })
         }
